@@ -1,0 +1,11 @@
+class MainClass{
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       int a = 0;
+       do {
+          a++;
+          if ((a%2)!=0)
+             Console.WriteLine("{0}", a); 
+       } while( a<14 );
+   }
+}

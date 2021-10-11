@@ -1,0 +1,17 @@
+class MainClass{
+   void Main(CaseClass c){
+        String str; 
+
+        str = ¡°4738";
+        short val1 = short::Convert(str, int::DECIMAL);
+        Console.WriteLine("String : {0}, Short : {1}", str, val1);
+
+        int val2 = 4738;
+        str = String::FormatInt(val2, int::BINARY, 0, 0); 
+        Console.WriteLine("String : {0}, int : {1}", str, val2);
+        
+        double val3 = 3.141592;
+        str = String::FormatDouble(val3, String::MINDIGITS); 
+        Console.WriteLine("String : {0}, double : {1}", str, val3);       
+  }
+}

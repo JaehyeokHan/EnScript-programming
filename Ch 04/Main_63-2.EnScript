@@ -1,0 +1,10 @@
+include "Cat"
+
+class MainClass {
+  void Main(CaseClass c) {
+    Cat myCat = new Cat();
+    Console.WriteLine(“자식 클래스에서 Name 변수 접근”);
+    myCat.setName(“caty”);
+    myCat.PrintName();
+  }
+}

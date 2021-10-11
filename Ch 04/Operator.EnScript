@@ -1,0 +1,12 @@
+class MainClass{
+   void Main(CaseClass c) {
+      int a = 2;
+      int b = 5;
+      
+      Console.WriteLine(a++);
+      Console.WriteLine(b++);
+      
+      Console.WriteLine(++a);
+      Console.WriteLine(++b);
+  }
+}

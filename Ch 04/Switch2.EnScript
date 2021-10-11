@@ -1,0 +1,20 @@
+class MainClass{
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       char c = 'C';
+       switch(c){
+          case 'A' :
+             Console.WriteLine("AAA"); 
+             break;
+          case 'B' :
+             Console.WriteLine("BBB"); 
+             break;
+          case 'C' :
+             Console.WriteLine("CCC"); 
+             break;
+          default :
+             Console.WriteLine("Default"); 
+             break;
+       }
+   }
+}

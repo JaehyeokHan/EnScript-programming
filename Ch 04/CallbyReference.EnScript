@@ -1,0 +1,16 @@
+class MainClass{  
+   int Add(int & input1, int & input2) 
+   {
+       input1++;
+       input2++;
+       return input1 + input2;
+   }
+   void Main(CaseClass c) 
+   {
+       int i = 10;
+       int j = 20;
+       Console.WriteLine("i의 값은 = {0}", i );
+       Console.WriteLine("j의 값은 = {0}", j );
+       Console.WriteLine("i와 j의 합은 = {0}" , Add( i, j) );
+   }
+}

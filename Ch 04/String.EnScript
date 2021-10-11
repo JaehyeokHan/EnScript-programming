@@ -1,0 +1,10 @@
+class MainClass{
+   void Main(CaseClass c){
+        String str1 = ¡°Hello!";
+        String str2 = ¡°EnScript¡° + ¡° Programing¡°;
+
+        Console.WriteLine(str1 + str2);
+        Console.WriteLine("{0}, {1}!", str1, str2);
+        Console.Write("Good {0}", "job");        
+  }
+}

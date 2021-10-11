@@ -1,0 +1,7 @@
+class Clothes
+{
+  double Quality,
+          Price;
+  
+  double getPrice() { return Price; }
+}

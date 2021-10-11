@@ -1,0 +1,22 @@
+class MainClass{  
+   int abs(int num)
+   {
+      if (d_abs(num))
+         return num;
+      else
+         return -num;
+   }
+   bool d_abs(int num)
+   {
+      if ( num > 0 )
+         return true;
+      else
+         return false;
+   }
+   void Main(CaseClass c) 
+   {
+       int a=10, b=-20;
+       Console.WriteLine("a의 절대값 : {0}", abs(a));
+       Console.WriteLine("b의 절대값 : {0}", abs(b));
+   }
+}

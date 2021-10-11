@@ -1,0 +1,12 @@
+class MainClass{
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       char c1 = 'Apple';
+       char c2 = 'Banana';
+       
+       if (c1 > c2 ? true : false)
+          Console.WriteLine(c1);
+       else
+          Console.WriteLine(c2);
+   }
+}

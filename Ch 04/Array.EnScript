@@ -1,0 +1,18 @@
+class MainClass {
+ 
+   typedef int [] IntArray;
+ 
+   void Main() {
+      IntArray testArr();
+      testArr.Add(11);
+      testArr.Add(22);
+      testArr.Add(33);
+      testArr.Add(44);
+      testArr.Add(55);
+      
+      for (int i = 0; i < testArr.Count(); i++) 
+      {
+         Console.WriteLine(testArr[i]);
+      }
+   }
+}

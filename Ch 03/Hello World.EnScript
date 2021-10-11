@@ -1,0 +1,5 @@
+class MainClass {
+  void Main(CaseClass c) {
+    Console.WriteLine("Hello World!");
+  }
+}

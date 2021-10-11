@@ -1,0 +1,9 @@
+class MainClass{
+  void function(const String &str) {  
+     Console.WriteLine("const String = " + str);
+  }
+   void Main(CaseClass c) {
+      String pi = "Apple";  
+      function(pi);
+  }
+}

@@ -1,0 +1,59 @@
+class Module
+{
+   String DirPath;
+
+   Module(const String & dirpath)
+   {
+      DirPath = dirpath;
+   }
+
+   void CreateDir(const String & dirpath)
+   {
+      ExecuteClass exec();
+      exec.SetApplication("cmd.exe");
+      exec.SetFolder("C:\\windows\\system32");
+      exec.SetCommandLine("/C mkdir \"" + dirpath);
+      exec.SetShow(false);
+      exec.Start(LocalMachine, 1000);
+   }
+
+   void LinkParsing(EntryClass entry)
+   {
+      CreateDir( DirPath + "LinkFiles\\" );
+
+      if(entry.Extension().Compare("lnk") == 0)
+      {
+        EntryFileClass ef();
+        ef.Open(entry);
+        LocalFileClass File();
+
+        File.Open( DirPath + "LinkFiles\\" + entry.Name() ,
+                                                 FileClass::WRITE);
+        File.WriteBuffer(ef);
+        File.Close();
+      }
+   }
+
+  void KoreanParsing(EntryClass entry)  
+  {
+    String FileName = entry.Name();
+    CreateDir( DirPath + "KoreanLanguageFiles\\" );
+
+    for(uint i;i<FileName.GetLength();i++)  {
+      if((FileName[i] >= '°¡' && FileName[i] <= 'ÆR') ||
+         (FileName[i] >= '¤¡' && FileName[i] <= '¤¾'))  
+      {
+        EntryFileClass ef();
+        ef.Open(entry);
+        LocalFileClass File();
+
+        File.Open( DirPath + "KoreanLanguageFiles\\" + FileName ,
+                                                  FileClass::WRITE);
+        File.WriteBuffer(ef);
+        File.Close();
+
+        break;
+      }
+    }
+  }
+}

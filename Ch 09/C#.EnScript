@@ -1,0 +1,18 @@
+assembly embed "EnScript.dll"
+
+class MainClass {
+  void Main(CaseClass c) {
+
+    long i=19, j=4, a, b, c;
+    EnScript::CalcClass sample();
+
+    a = sample.Add(i,j);
+    b = sample.Mul(i,j);
+    c = sample.Mod(i,j);
+
+    Console.WriteLine("{0} + {1} = {2}", i, j, a);
+    Console.WriteLine("{0} * {1} = {2}", i, j, b);
+    Console.WriteLine("{0} % {1} = {2}", i, j, c);
+
+  }
+}

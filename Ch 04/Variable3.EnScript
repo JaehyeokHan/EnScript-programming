@@ -1,0 +1,10 @@
+class MainClass{
+   void Main(CaseClass c){
+     short a = 1;
+     char b = ¡®A';
+     uint c = 65;
+    
+     Console.WriteLine(¡°a = {0}, b = {1}¡±, a, b);
+     Console.WriteLine(¡°d = {0}¡±, c);
+  }
+}

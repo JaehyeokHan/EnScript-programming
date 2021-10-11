@@ -1,0 +1,17 @@
+class MainClass {
+   void Main(CaseClass c) {
+      SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+
+      for (ItemIteratorClass iter(c, 0,
+                ItemIteratorClass::CURRENTVIEW_SELECTED); 
+                EntryClass entry = iter.GetNextEntry();) {
+         if (entry.Extension().Compare("txt") == 0)
+         {
+            Console.WriteLine("FileName : {0}", entry.Name());
+            Console.Write("CreatedTime : ");
+            Console.WriteLine(entry.Created().GetString("yyyy/MM/dd",
+                                         "hh:mm:ss tt", -9 * 3600));
+         }
+      }
+   }
+}

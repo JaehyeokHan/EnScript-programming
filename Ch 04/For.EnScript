@@ -1,0 +1,9 @@
+class MainClass{  
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       for (int i =0; i < 10; i++) {
+          Console.WriteLine("i는 {0}입니다.” , i );
+       }
+       Console.WriteLine("for문이 종료되었습니다.“);
+   }
+}

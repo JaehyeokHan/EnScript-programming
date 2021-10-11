@@ -1,0 +1,12 @@
+class MainClass{
+   void Main(CaseClass c) {
+     int k = 1;
+     int j = 2;
+     int result;
+     
+     result = k > j+2 ? (k-j) : (k+j); 
+     Console.WriteLine(result);
+     result = k*8 <= j+7 ? (k*j) : 0; 
+     Console.WriteLine(result);
+  }
+}

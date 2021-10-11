@@ -1,0 +1,15 @@
+class MainClass {
+   void Main(CaseClass c) {
+      String ext = "txt";
+      for (ItemIteratorClass iter(c, 0,
+                       ItemIteratorClass::CURRENTVIEW_SELECTED);
+                       EntryClass entry = iter.GetNextEntry(); ) {
+         String _ext = 
+                entry.Name().SubString(entry.Name().GetLength()-3,3);
+         if (_ext.Compare(ext) == 0) 
+         {
+            Console.WriteLine( entry.Name() );
+         }
+      }
+   }
+}

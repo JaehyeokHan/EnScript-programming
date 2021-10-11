@@ -1,0 +1,17 @@
+class MainClass{
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       int a = 1;
+       switch(a){
+          case 0 :
+             Console.WriteLine("a는 0입니다.“); 
+             break;
+          case 1 :
+             Console.WriteLine("a는 1입니다.“); 
+             break;
+          default :
+             Console.WriteLine("a는 1이상 입니다.“); 
+             break;
+       }
+   }
+}

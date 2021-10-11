@@ -1,0 +1,17 @@
+class MainClass {
+    void Main(CaseClass c) {
+         for ( ItemIteratorClass iter(c, 0,
+                       ItemIteratorClass::CURRENTVIEW_SELECTED);
+                       EntryClass entry = iter.GetNextEntry(); ) {
+             String FileName = entry.Name();
+             for (uint i; i<FileName.GetLength(); i++)  {
+                 if ((FileName[i] >= '°¡' && FileName[i] <= 'ÆR') ||
+                     (FileName[i] >= '¤¡' && FileName[i] <= '¤¾'))  
+                 {
+                         Console.WriteLine(entry.ItemPath());
+                         break;
+                 }
+             }
+         }
+     }
+}

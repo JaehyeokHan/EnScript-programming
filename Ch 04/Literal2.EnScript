@@ -1,0 +1,12 @@
+class MainClass{
+   void Main(CaseClass c){      
+      SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+
+      int i = 10;
+      int j = 5; 
+
+      Console.WriteLine("i * 3 = {0}", i * 3);
+      Console.WriteLine("j + 3 = {0}", j + 3);
+      Console.WriteLine("(i + 3) * (j - 2) = {0}", (i + 3) * (j - 2));
+  }
+}

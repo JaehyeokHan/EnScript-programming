@@ -1,0 +1,13 @@
+class MainClass {
+   void Main(CaseClass c) {
+      SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+      for (ItemIteratorClass iter(c); 
+                   EntryClass entry = iter.GetNextEntry();) {
+         Console.WriteLine(entry.Name());
+         SearchClass search();
+         HashClass md5 = search.ComputeHash(entry);
+         if (md5.IsValid())
+            Console.WriteLine(md5);
+      }
+   }
+}

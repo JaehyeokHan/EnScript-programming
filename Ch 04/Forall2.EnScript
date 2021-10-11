@@ -1,0 +1,20 @@
+class MainClass{  
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       
+       NameListClass Number(null, "Number");
+       NameListClass Composite(Number, "Composite Number");
+       NameListClass Prime(Number, "Prime Number");
+       new NameListClass(Prime, 1);
+       new NameListClass(Prime, 2);
+       new NameListClass(Prime, 3);
+       new NameListClass(Composite, 4);
+       new NameListClass(Prime, 5);
+       new NameListClass(Composite, 6);
+       Print(Number);
+   }
+   void Print(NameListClass Node) {
+      forall (NameListClass n in Node) 
+         Console.WriteLine("{0}", n.Name());
+   }
+}

@@ -1,0 +1,94 @@
+class MainClass;
+
+class InputDialogClass: DialogClass {
+
+  MainClass Main;
+  TreeTableEditClass KeywordsEdit;
+
+  InputDialogClass(DialogClass parent, MainClass main):
+    DialogClass(parent, "Keywords"),
+    Main = main,
+    KeywordsEdit(this, "Input Keywords", 
+       START, START, 500, 250, 0, main.Keywords,
+       ContextClass::CANCHECK | ContextClass::CANVIEWNODES | 
+       ContextClass::CANINCLUDE | ContextClass::CANADDNODE |
+    ContextClass::CANADDFOLDER | ContextClass::CANDELETENODE |
+      ContextClass::CANEDITNODE | ContextClass::CANDRAGNODE)
+  {
+  }
+}
+
+class MainClass {
+
+  KeywordClass  Keywords;
+  String        StatusBarName;
+
+  MainClass() :
+    Keywords(),
+    StatusBarName = "Keyword Search"
+  {
+  }
+
+  bool InitSearch(SearchClass search) {
+    bool ret = false;
+    forall (KeywordClass k in Keywords) {
+      if (k.IsSelected()) {
+        ret = search.AddKeyword(k);
+        if (!ret) {
+          SystemClass::Message(SystemClass::OK, 
+                  "Error", "Fatal Error: Bad Keyword:" + k.Name());
+          break;
+        }
+      }
+    }
+
+    if (ret) {
+      ret = search.Create();
+      if (!ret)
+        SystemClass::Message(SystemClass::OK, 
+            "Error", "Fatal Error: SearchClass Creation Failure");
+    }
+    return ret;
+  }
+
+  void Main(CaseClass c) {
+    if (c) {
+      SystemClass::StatusRange(StatusBarName, 0);
+      SearchClass search();
+      InputDialogClass diag(null, this);
+
+      BookmarkClass root(c.BookmarkRoot(), 
+                           "Hit Files", NodeClass::FOLDER);
+
+      if (diag.Execute() == SystemClass::OK) {
+        if (InitSearch(search)) {
+          int hitsTotal;
+
+          for(ItemIteratorClass iter(c, 0,
+                  ItemIteratorClass::CURRENTVIEW_SELECTED); 
+                  EntryClass entry = iter.GetNextEntry();) 
+          {
+             EntryFileClass file();
+             if (file.Open(entry, 0)) {
+               int hitNumber = search.Find(file, -1, -1, 0);
+               hitsTotal += hitNumber;
+
+               if (hitNumber > 0) {
+                 BookmarkItemClass bic(root, entry.Name(), 0);
+                 bic.CopyItemData(entry);
+               }
+               file.Close();
+             }
+          }
+          Console.WriteLine("Found {0} hits total", hitsTotal);
+        }
+        else
+          SystemClass::Message(SystemClass::OK, 
+                "Error", "Fatal Error: Could Not Create Search!");
+      }
+    }
+    else
+      SystemClass::Message(SystemClass::OK, 
+                             "Error", "Please Open A Case");
+  }
+}

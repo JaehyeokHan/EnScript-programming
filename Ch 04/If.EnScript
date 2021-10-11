@@ -1,0 +1,11 @@
+class MainClass{
+   void Main(CaseClass c) {
+       int val1 = 10;
+       if ( val1 < 10 )
+          Console.WriteLine("val1은 10보다 작다.“);
+       else if ( val1 == 10)
+          Console.WriteLine("val1은 10이다“);
+       else
+          Console.WriteLine("val1은 10보다 크다“);
+   }
+}

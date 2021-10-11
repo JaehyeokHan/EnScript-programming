@@ -1,0 +1,23 @@
+class Animal
+{
+  String  Name;
+  uint age;
+  double weight,
+         height;
+  void Cry() { Console.WriteLine( ¡°Cry..¡± ); }
+}
+class Cat : Animal
+{
+  void Cry() {  
+    Console.WriteLine( ¡°Mew..Mew..¡± );   
+  }
+} 
+
+class MainClass {
+  void Main(CaseClass c) {
+    Animal myAnimal();
+    Cat myCat();
+    myAnimal.Cry();
+    myCat.Cry();
+  }
+}

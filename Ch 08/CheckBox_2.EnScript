@@ -1,0 +1,23 @@
+class myDialogClass: DialogClass {
+
+  CheckBoxClass Link_Check;
+  CheckBoxClass Korean_Check;
+  bool is_Link_Check;
+  bool is_Korean_Check;
+
+  myDialogClass(DialogClass parent):
+    DialogClass(parent, "Link parser"),
+    Link_Check(this, "LinkParsing", 
+                       30, 25, 15, 15, 0, is_Link_Check),
+    Korean_Check(this, "KoreanParsing", 
+                       110, 25, 15, 15, 0, is_Link_Check)
+  {
+  }
+}
+
+class EndDialogClass: DialogClass {
+ EndDialogClass(DialogClass parent):
+   DialogClass(parent, "Finish")
+   {
+   }
+}

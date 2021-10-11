@@ -1,0 +1,11 @@
+class MainClass{
+   enum days {월, 화, 수, 목, 금, 토, 일} 
+   void Main(CaseClass c) {
+       days d; 
+       
+       Console.WriteLine("0 번째 요일 : {0}", days::SourceText(d));
+       Console.WriteLine("1 번째 요일 : {0}", days::SourceText(++d));
+       d = days::Convert(5);
+       Console.WriteLine("5 번째 요일 : {0}", days::SourceText(d));
+  }
+}

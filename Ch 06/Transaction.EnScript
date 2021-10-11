@@ -1,0 +1,23 @@
+class MainClass {
+  void Main(CaseClass c) {
+    String FolderPath = "C:\\";
+    SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+    myDB mDB( FolderPath + "HwpParser.db" );
+    mDB.execute("CREATE Table HWP_Files (Name TEXT, 
+                                            TruePath TEXT);");
+    mDB.execute("BEGIN TRANSACTION;");     
+
+    for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+    {
+      if(entry.Extension().Compare("hwp") == 0)
+      {
+         mDB.execute("INSERT INTO HWP_Files 
+                       VALUES ('" + entry.Name() + 
+                       "', '" + entry.TruePath() + "');");
+      }
+    }
+    mDB.execute("END TRANSACTION;"); 
+  }
+}

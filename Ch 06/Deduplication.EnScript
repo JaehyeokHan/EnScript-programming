@@ -1,0 +1,65 @@
+class myHash
+{
+   myHash(const String & _Hash, const String & _Name, 
+                                     const String & _TruePath)
+   {
+      Hash = _Hash;
+      Name = _Name;
+      TruePath = _TruePath;
+   }
+
+   HashClass getHash()  {  return Hash; }
+
+   String getName() { return Name; }
+
+   String getTruePath() { return TruePath; }
+
+   HashClass Hash;
+   String Name;
+   String TruePath;
+}
+class MainClass {
+  typedef myHash [] HashArray;
+
+  void Main(CaseClass c) {
+    String FolderPath = "C:\\";
+    HashArray HashArr();
+    LocalFileClass File = new LocalFileClass();
+
+    File.Open( FolderPath + "Deduplication.csv",
+                           FileClass::WRITE +  FileClass::TEXT );
+    File.WriteLine("\"CompareFile_Name\"\t\"CompareFile_TruePath
+                \"\t\"MatchFile_Name\"\t\"MatchFile_TruePath\"");
+
+    for(ItemIteratorClass iter(c, 0,
+                ItemIteratorClass::CURRENTVIEW_SELECTED); 
+                EntryClass entry = iter.GetNextEntry();) 
+    {
+       if( entry.IsFolder() == true || entry.IsDisk() == true 
+                                      || entry.IsVolume() == true)
+         continue;
+
+       bool Check = false;
+
+       forall(myHash H in HashArr)
+       {
+          if( entry.HashValue().Compare( H.getHash() ) == 0 )
+          {
+            File.WriteLine("\"" + H.getName() + "\"\t\"" +
+                             H.getTruePath() + "\"\t\"" +
+                             entry.Name()  + "\"\t\"" + 
+                             entry.TruePath()  + "\"");
+            Check = true;
+          }
+       }
+
+       if(!Check)
+       {
+          myHash temp_myHash(entry.HashValue(), entry.Name(),
+                                                   entry.TruePath());
+          HashArr.Add(temp_myHash);
+       }
+    }
+    File.Close();
+  }
+}

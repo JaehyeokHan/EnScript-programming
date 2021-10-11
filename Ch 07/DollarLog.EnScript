@@ -1,0 +1,47 @@
+class MainClass {
+  void Main(CaseClass c) {
+   String FolderPath = "C:\\DollarLog\\";
+
+   for(ItemIteratorClass iter(c, 0,
+               ItemIteratorClass::CURRENTVIEW_SELECTED); 
+               EntryClass entry = iter.GetNextEntry();) 
+   {
+      ParserClass::DollarLogParserClass DollarLogParser = 
+                          new ParserClass::DollarLogParserClass();
+      ParserClass::MftArtifactClass MftArtifactList = 
+                          new ParserClass::MftArtifactClass();
+      EntryFileClass entryFile();
+
+      if(entryFile.Open(entry))
+      {
+         if(DollarLogParser.IsValidFile(entryFile))
+         {
+            DollarLogParser.Run(entryFile);
+         }
+         else
+            continue;
+      }
+
+      LocalFileClass Mft_Csv = new LocalFileClass();
+      Mft_Csv.Open( FolderPath + "DollarLog_Parsing.csv",
+                           FileClass::WRITE +  FileClass::TEXT );
+      Mft_Csv.WriteLine("FileNameDos\"\t\"IndexName
+                           \"\t\"ParentName\"\t\"ReparseName
+                           \"\t\"VolumeName\"\t\"Created\"");
+      MftArtifactList = DollarLogParser.MftArtifacts();
+
+      foreach(ParserClass::MftArtifactClass Mft 
+                                        in MftArtifactList) 
+      {
+          String qeury = "\"" + Mft.FileNameDos() + "\"\t\"" 
+                + Mft.IndexName() + "\"\t\"" + Mft.ParentName() 
+                + "\"\t\"" + Mft.ReparseName() + "\"\t\"" 
+                + Mft.VolumeName() + "\"\t\"" 
+                + Mft.Created().GetString("yyyy/MM/dd",
+                                "hh:mm:ss tt",9 * -3600)  +  "\"";
+
+          Mft_Csv.WriteLine(qeury);
+      }
+    }
+  }
+}

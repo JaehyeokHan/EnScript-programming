@@ -1,0 +1,12 @@
+class myClass1
+{
+   String m_Name;
+}
+
+class myClass2
+{
+   String Name;
+   uint age;
+ 
+   myClass1 c;
+}

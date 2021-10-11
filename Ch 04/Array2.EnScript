@@ -1,0 +1,57 @@
+class testClass {
+
+   testClass()
+   {
+      _Number = 0;
+      _Name = "";
+   }
+   
+   testClass(int Number, String Name)
+   {
+      _Number = Number;
+      _Name = Name;
+   }
+   
+   int _Number;
+   String _Name;
+}
+
+class MainClass {
+
+   typedef testClass [] ClassArray; 
+   typedef String [] StringArray;
+   typedef int [] IntArray;
+   
+   void PrintArray(ClassArray array)
+   {
+      for (int i=0; i<array.Count(); i++)
+      {
+         Console.WriteLine(array[i]._Name);
+      }
+   }
+ 
+   void Main() {
+      ClassArray classArr(0, 5);
+      StringArray strArr(0, 5);
+      IntArray intArr(0, 5);
+            
+      strArr.Add("Hellow");
+      strArr.Add("My");
+      strArr.Add("Name");
+      strArr.Add("is");
+      strArr.Add("Tom");
+      
+      for (int i = 0; i < 5; i++) 
+      {
+         intArr.Add(i);
+      }
+      
+      for (int i = 0; i < intArr.Count(); i++) 
+      {
+         testClass temp(intArr[i], strArr[i]);
+         classArr.Add(temp);
+      }      
+      
+      PrintArray(classArr);
+   }
+}

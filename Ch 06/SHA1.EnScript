@@ -1,0 +1,17 @@
+class MainClass {
+   void Main(CaseClass c) {
+      SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+      for (ItemIteratorClass iter(c); 
+                   EntryClass entry = iter.GetNextEntry();) {
+         Console.WriteLine(entry.Name());
+         EntryFileClass ef();
+         if (ef.Open(entry)) {
+            SHA1Class sha1();
+            ef.ComputeSHA1(sha1);
+            Console.WriteLine(sha1.GetString());
+         }
+         else
+            Console.WriteLine( "Fail to open a file" );
+      } 
+   }
+}

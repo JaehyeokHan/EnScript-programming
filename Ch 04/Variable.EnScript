@@ -1,0 +1,7 @@
+class MainClass{
+   void Main(CaseClass c){
+     short a;
+     char b, c;
+     uint d;
+   }
+}

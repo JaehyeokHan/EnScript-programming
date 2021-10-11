@@ -1,0 +1,22 @@
+class MainClass {
+  void Main(CaseClass c) {
+    BookmarkClass root(c.BookmarkRoot(), "Korean Files",
+                                             NodeClass::FOLDER);
+    for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+    {
+        String FileName = entry.Name();
+
+        for(uint i;i<FileName.GetLength();i++)  {
+           if((FileName[i] >= '°¡' && FileName[i] <= 'ÆR') ||
+              (FileName[i] >= '¤¡' && FileName[i] <= '¤¾'))  
+           {
+              BookmarkItemClass bic(root, entry.Name(), 0);
+              bic.CopyItemData(entry);
+              break;
+           }
+        }
+     }
+  }
+}

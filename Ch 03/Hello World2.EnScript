@@ -1,0 +1,6 @@
+class MainClass {
+  void Main(CaseClass c) {
+    SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+    Console.WriteLine("Hello World!");
+  }
+}

@@ -1,0 +1,12 @@
+class MainClass{
+   void Main(CaseClass c) {
+     int k = 1;
+     int j = 2;
+     int result;
+     
+     result = ++k + ++j * 2;             
+     Console.WriteLine(result);
+     result = k++ + j++ % 3;             
+     Console.WriteLine(result);
+  }
+}

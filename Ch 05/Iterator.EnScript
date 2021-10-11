@@ -1,0 +1,12 @@
+class MainClass {
+   void Main(CaseClass c) {
+      for ( ItemIteratorClass iter(c, 0,
+                        ItemIteratorClass::CURRENTVIEW_SELECTED);
+                        EntryClass entry = iter.GetNextEntry(); ) {
+         if (entry.LogicalSize() >= 1000) {
+            Console.WriteLine("FileName : {0}", entry.Name());
+            Console.WriteLine("FileSize : {0}", entry.LogicalSize());
+         }
+      }  
+   }
+}

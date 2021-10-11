@@ -1,0 +1,25 @@
+class MainClass {
+   void Main(CaseClass c) {
+
+     String FolderPath = "C:\\";
+     LocalFileClass File = new LocalFileClass();
+
+     SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+
+     File.Open( FolderPath + "HwpParser.csv",   
+                             FileClass::WRITE +  FileClass::TEXT );
+     File.WriteLine("\"Name\"\t\"TruePath\"");
+
+     for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+     {
+        if(entry.Extension().Compare("hwp") == 0)
+        {
+            File.WriteLine("\"" + entry.Name() + "\"\t\"" +
+                                    entry.ItemPath() +  "\"");
+        }
+     }
+     File.Close();
+   }
+}

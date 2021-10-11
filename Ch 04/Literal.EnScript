@@ -1,0 +1,8 @@
+class MainClass{
+   void Main(CaseClass c){      
+      SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+
+      int num = 10 + 20;
+      Console.WriteLine(num);
+  }
+}

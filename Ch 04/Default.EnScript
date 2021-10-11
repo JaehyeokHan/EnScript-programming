@@ -1,0 +1,12 @@
+class MainClass{  
+   void print(ulong n = 200, const String& cStr = ¡°const String&¡±,
+                                            String Str = ¡°String¡±)
+   {
+       Console.WriteLine(n+¡° / ¡±+cStr+¡° / ¡±+Str);
+   }
+   void Main(CaseClass c) 
+   {
+       print(100, ¡°input1¡±, ¡°input2¡±);
+       print();
+   }
+}

@@ -1,0 +1,12 @@
+class MainClass{  
+   void PrintHello() 
+   {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       Console.WriteLine("Hello World!");
+   }
+
+   void Main(CaseClass c) 
+   {
+      PrintHello();
+   }
+}

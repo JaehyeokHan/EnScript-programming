@@ -1,0 +1,28 @@
+class MainClass {
+  void Main(CaseClass c) {
+    SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+
+    String FolderPath = "C:\\EnScript\\";
+    ParserClass::LinkParserClass linkFileParser = 
+                                new ParserClass::LinkParserClass();
+
+    for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+    {
+      EntryFileClass entryFile();
+
+      if(entryFile.Open(entry)) {
+        if(linkFileParser.IsValidFile(entryFile)) {
+           LocalFileClass File();
+           File.Open( FolderPath + entry.Name(), 
+                                           FileClass::WRITE );
+           File.WriteBuffer(entryFile);
+           File.Close();
+
+           Console.WriteLine("{0} Export File...", File.Name());
+        }
+      }
+    }
+  }
+}

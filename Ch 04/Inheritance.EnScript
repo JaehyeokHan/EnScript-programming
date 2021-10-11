@@ -1,0 +1,11 @@
+class Animal
+{
+  String  Name;
+  uint age;
+  double weight,
+         height;
+}
+
+class Cat : Animal
+{
+}

@@ -1,0 +1,35 @@
+include "9-3 Wizard_2"
+include "9-3 Wizard_3"
+
+class MainClass;
+
+class MainClass {
+  void Main(CaseClass c) {
+     myDialogClass dialog(null,"Link parser");
+     myDialogChild1 dialog1(parent);
+     myDialogChild2 dialog2(parent);
+
+     if(dialog.Wizard() == 1 )
+     {
+        Module module(dialog2.DirPath);
+
+        for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+        { 
+           if(dialog1.is_Link_Check == true)
+           {
+              module.LinkParsing(entry);
+           }
+
+           if(dialog1.is_Korean_Check == true)
+           {
+              module.KoreanParsing(entry);
+           }
+        }
+
+        SystemClass::Message(SystemClass::ICONINFORMATION,
+                  "Finish", "프로그램이 정상적으로 완료되었습니다.");
+     }
+  }
+}

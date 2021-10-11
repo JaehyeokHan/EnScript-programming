@@ -1,0 +1,12 @@
+class Animal
+{
+  protected String  Name;
+  uint age;
+  double weight,
+         height;
+  
+  protected void Cry() 
+  {
+    Console.WriteLine( ¡°Cry..¡± );
+  }
+}

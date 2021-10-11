@@ -1,0 +1,40 @@
+class MainClass {
+   bool Deduplicate(ItemClass item, BookmarkClass bookmark)
+   {
+      forall(ItemClass file in bookmark)
+      {
+         if(file.Name().Compare(item.Name()) == 0)
+           return true;
+      }
+      return false;
+   }
+
+   void SearchKorean(EntryClass entry, BookmarkClass bookmark)
+   {
+      String FileName = entry.Name();
+      for(uint i;i<FileName.GetLength();i++)
+      {
+         if((FileName[i] >= '°¡' && FileName[i] <= 'ÆR') ||
+              (FileName[i] >= '¤¡' && FileName[i] <= '¤¾'))
+         {
+            if(!Deduplicate(entry, bookmark))
+            {
+               BookmarkItemClass bic(bookmark, entry.Name(), 0);
+               bic.CopyItemData(entry);
+               break;
+            }
+         }
+      }
+   }
+
+   void Main(CaseClass c) {
+      BookmarkClass root(c.BookmarkRoot(), "Korean Files",
+                                               NodeClass::FOLDER);
+      for(ItemIteratorClass iter(c, 0,
+               ItemIteratorClass::CURRENTVIEW_SELECTED);
+               EntryClass entry = iter.GetNextEntry();)
+      {
+         SearchKorean(entry, root);
+      }
+   }
+}

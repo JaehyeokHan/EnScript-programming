@@ -1,0 +1,12 @@
+include "EntryInfo"
+
+class MainClass{  
+   void Main(CaseClass c) {
+      EntryInfo e();
+      
+      e.size = 273;
+      e.filename = "test.hwp";
+
+      e.PrintEntryInfo();
+   }
+}

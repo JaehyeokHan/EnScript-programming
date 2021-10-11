@@ -1,0 +1,10 @@
+class MainClass{
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       int i = 1;
+       do {
+           Console.WriteLine("{0} ¡°, i ); 
+           i++;
+       } while( i < 10 );
+   }
+}

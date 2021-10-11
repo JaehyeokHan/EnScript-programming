@@ -1,0 +1,42 @@
+class MainClass {
+   void PrintFileType(int fileType)
+   {
+      switch (fileType) {
+         case ItemClass::PICTURE : {
+           Console.WriteLine("FileType : PICTURE");
+           break;
+         }
+         case ItemClass::APPLICATION : {
+           Console.WriteLine("FileType : APPLICATION");
+           break;
+         }
+         case ItemClass::DOCUMENT : {
+           Console.WriteLine("FileType : DOCUMENT");
+           break;
+         }
+         case ItemClass::MULTIMEDIA_AUDIO : {
+           Console.WriteLine("FileType : MULTIMEDIA_AUDIO");
+           break;
+         }
+         case ItemClass::MULTIMEDIA_VIDEO : {
+           Console.WriteLine("FileType : MULTIMEDIA_VIDEO");
+           break;
+         }
+         default : {
+           Console.WriteLine("FileType : DEFAULT");
+           break;
+         }
+      }
+   }   
+   void Main(CaseClass c) {
+      for (ItemIteratorClass i(c); ItemClass item = i.GetNextItem();) {
+       Console.WriteLine("ItemName : {0}", item.Name());
+       Console.WriteLine("ItemPath : {0}", item.ItemPath());
+       Console.WriteLine("Accessed : {0}", item.Accessed().GetString());
+       Console.WriteLine("Created : {0}", item.Created().GetString());
+       Console.WriteLine("Written : {0}", item.Written().GetString());
+       Console.WriteLine("MD5Hash : {0}", item.MD5Hash().GetString());
+       PrintFileType(item.Category());       
+      }     
+   }
+}

@@ -1,0 +1,15 @@
+class MainClass {
+  void Main(CaseClass c) {
+    forall (BookmarkClass folder in c.BookmarkRoot()) 
+    {
+      if(folder.Name().Compare( "Korean Files" ) == 0)
+      {
+         forall(ItemClass file in folder)
+         {
+            Console.WriteLine(file.Name());
+         }
+         break;
+      }
+    }
+  }
+}

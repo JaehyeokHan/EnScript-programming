@@ -1,0 +1,20 @@
+class MainClass{
+   typedef char[] charArray;
+   void Main(CaseClass c) {
+       charArray ext(3);
+       String file = "EnScript.hwp";
+       file.ToUpper();
+       Console.WriteLine(file);
+       uint pos = file.Find(".");
+       if (file.Contains(".") != true)
+          Console.WriteLine("파일 확장자가 없습니다.“);
+       else if (file.GetLength() == pos-3)
+          Console.WriteLine("파일 확장자 길이가 3이 아닙니다.“);
+       else {
+          ext[0] = char::ToLower(file[pos+1]);
+          ext[1] = char::ToLower(file[pos+2]);
+          ext[2] = char::ToLower(file[pos+3]);
+          Console.Write("{0}{1}{2}", ext[0], ext[1], ext[2]);
+       }
+   }
+}

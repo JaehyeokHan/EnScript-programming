@@ -1,0 +1,24 @@
+class myClass
+{
+  String  m_Name;
+  uint    m_Number;
+
+  myClass(String _Name, uint _Number)
+  {
+     m_Name = _Name;
+     m_Number = _Number;
+  }
+}
+
+class MainClass{  
+   void Main(CaseClass c) {
+      myClass  c(¡°Candy¡±, 1234);
+      Console.WriteLine(c.m_Name);
+      Console.WriteLine(c.m_Number);
+      
+      c.m_Name = "June";
+      c.m_Number = 2345;
+      Console.WriteLine(c.m_Name);
+      Console.WriteLine(c.m_Number);
+   }
+}

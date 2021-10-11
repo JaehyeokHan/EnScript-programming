@@ -1,0 +1,28 @@
+class MainClass {
+ 
+   typedef int [] IntArray;
+   typedef IntArray [] IntMatrix;   
+ 
+   void Main() {
+      IntMatrix M_Arr();
+      
+      for (int i=0; i<5; i++)
+      {
+         IntArray I_Arr();         
+         for (int j=0; j<5; j++)
+         {
+            I_Arr.Add(i+j);
+         }         
+         M_Arr.Add(I_Arr);         
+      }
+            
+      for (int i=0; i<5; i++)
+      {
+         for (int j=0; j<5; j++)
+         {
+            Console.Write(M_Arr[i][j] + " ");
+         }
+         Console.Write("\n");
+      }
+   }
+}

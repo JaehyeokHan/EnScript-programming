@@ -1,0 +1,12 @@
+class MainClass{
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       int num1 = 10;
+       int num2 = 20;
+       int result;
+       
+       result = num1 > num2 ? num1 : num2;
+       
+       Console.WriteLine("더 큰 수는 : {0}", result);
+   }
+}

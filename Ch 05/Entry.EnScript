@@ -1,0 +1,23 @@
+class MainClass {
+   void Main(CaseClass c) {
+       for (ItemIteratorClass i(c,0,ItemIteratorClass::ALL); 
+                         EntryClass entry = i.GetNextEntry();) {
+         Console.WriteLine("ItemName : {0}", entry.Name());
+         Console.WriteLine("ItemPath : {0}", entry.ItemPath());
+         Console.WriteLine("Modified : {0}",
+                                     entry.Modified().GetString());
+         Console.WriteLine("PhysicalSize : {0}", entry.PhysicalSize());
+         
+         if (entry.IsDeleted())
+         {
+            Console.WriteLine("Deleted : {0}",
+                                      entry.Deleted().GetString());
+         }
+         
+         if (entry.IsHidden())
+         {
+            Console.WriteLine("This file is hidden.");
+         }
+      }  
+   }
+}

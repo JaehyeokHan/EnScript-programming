@@ -1,0 +1,15 @@
+class MainClass {
+  void Main() {
+    LocalFileClass file();
+    DateClass now();
+    now.Set(2000, 1, 1, 0, 0, 0);
+
+    String filePath = "C:\\temp\\test.txt";
+
+    if (file.Open(filePath, FileClass::WRITETEXTCRLF))
+    {
+      Console.WriteLine("file " + filePath + " has been created");
+      file.SetTimeStamps(now, now, now);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+class MainClass{
+   void Main(CaseClass c) {
+      int a = 2, b = 5;
+      Console.WriteLine(¡°++a = {0}, --a = {1}¡±, ++a, --a);
+      Console.WriteLine(¡°a++ = {0}, a-- = {1}¡±, a++, a--);
+      Console.WriteLine(¡°a * b = {0}, a / b = {1}, a % b = {2}¡±,
+                                              a*b, a/b, a%b);
+      Console.WriteLine(¡°a<<2 = {0}, a>>2 = {1}¡±, a<<2, a>>2);
+      Console.WriteLine(¡°a^b = {0}, a|b = {1}¡±, a^b, a|b);
+  }
+}

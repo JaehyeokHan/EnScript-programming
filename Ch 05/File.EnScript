@@ -1,0 +1,16 @@
+class MainClass {
+   void Main(CaseClass c) {
+     for ( ItemIteratorClass iter(c, 0,
+                        ItemIteratorClass::CURRENTVIEW_SELECTED);
+                        EntryClass entry = iter.GetNextEntry(); ) {
+        LocalFileClass lf();
+        String filePath = "C:\\EnScript\\text.txt";
+        
+        if (lf.Open(filePath, FileClass::TEXT + FileClass::APPEND))
+        {
+           lf.WriteLine(entry.Name());
+        }
+        lf.Close();
+     }
+   }
+}

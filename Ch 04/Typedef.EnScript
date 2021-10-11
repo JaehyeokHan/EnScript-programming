@@ -1,0 +1,11 @@
+class MainClass{
+   typedef int MyInt;
+
+   void Main(CaseClass c){
+        MyInt val1 = 10;
+        MyInt val2 = 20;
+
+        Console.WriteLine("val1 = {0}", val1);
+        Console.WriteLine("val2 = {0}", val2);
+  }
+}

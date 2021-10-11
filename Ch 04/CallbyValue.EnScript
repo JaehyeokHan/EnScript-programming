@@ -1,0 +1,12 @@
+class MainClass{  
+   int Add(int input1, int input2) 
+   {
+       return input1 + input2;
+   }
+   void Main(CaseClass c) 
+   {
+       int i = 10;
+       int j = 20;
+       Console.WriteLine( Add( i, j) );
+   }
+}

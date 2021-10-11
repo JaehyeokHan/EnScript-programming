@@ -1,0 +1,16 @@
+class MainClass {
+   void Main(CaseClass c) {
+      DateClass date();
+      date.Now();
+      Console.WriteLine(" * Current Time : {0}",
+                        date.GetString(DateClass::GetDateFormat(),
+                        DateClass::GetTimeFormat(), -9 * 3600));
+      NameListClass days(); 
+      days.Parse("일,월,화,수,목,금,토", ",");
+      String today = date.Year() + "년 "+ date.Month() + "월 "+ 
+               date.Day() + "일("+ days.ChildName(date.DayOfWeek())  
+               + ") " + date.Hour() + "시 “ + date.Minute() + 
+               "분 "+ date.Second() + "초";
+      Console.WriteLine(today);
+   }
+}

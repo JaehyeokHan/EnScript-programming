@@ -1,0 +1,15 @@
+include "Cat"
+
+class MainClass {
+  void Main(CaseClass c) {
+    Cat myCat();
+    Console.WriteLine( “고양이 이름 : ” + myCat.Name );
+    myCat.Name = “Nancy”;
+    Console.WriteLine( “바뀐 고양이 이름 : ” + myCat.Name );
+    Console.WriteLine( “옷 가격 : ” + myCat.Price );
+    myCat.Price = 18.9;
+    Console.WriteLine( “바뀐 옷 가격 : ” + myCat.Price );
+  
+    myCat.Cry();
+  }
+}

@@ -1,0 +1,20 @@
+class MainClass{
+   void Main(CaseClass c) {
+      int num = 200;
+      
+      if (num > 200)
+      {
+         if (num%2 == 0)
+            Console.WriteLine("A");
+         else
+            Console.WriteLine("B");
+      }
+      else
+      {
+         if (num%2 == 0)
+            Console.WriteLine("C");
+         else
+            Console.WriteLine("D");
+      }
+   }
+}

@@ -1,0 +1,7 @@
+class Animal
+{
+  uint age;
+  double weight,
+          height;
+  void Cry() { Console.WriteLine( ¡°Cry..¡± ); }
+}

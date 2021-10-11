@@ -1,0 +1,40 @@
+class MainClass {
+   void mkdir(String FolderPath)
+   {       
+      ExecuteClass exec();  
+      exec.SetApplication("cmd.exe");
+      exec.SetFolder("C:\\windows\\system32");
+      exec.SetCommandLine("/C mkdir \"" + FolderPath + "\"");
+      exec.SetShow(false);
+      exec.Start(LocalMachine, 1000);
+      Console.WriteLine("{0} Create Folder...", FolderPath);
+   }
+   
+   void mkfile(EntryClass entry, String FilePath)
+   {
+      String FolderPath = FilePath.GetFilePath();
+      mkdir(FolderPath);
+      
+      EntryFileClass ef();
+      ef.Open(entry);
+      LocalFileClass File();
+
+      File.Open( FilePath , FileClass::WRITE);
+      File.WriteNode(ef);
+      File.SetTimeStamps(entry.Created(), entry.Written(), 
+                                           entry.Accessed());
+      File.Close();
+
+      Console.WriteLine("{0} Export File...", entry.Name());
+   }   
+   
+   void Main(CaseClass c) {
+      String FolderPath  = "C:\\EnScript\\";
+      
+      for (ItemIteratorClass iter(c, 0,
+            ItemIteratorClass::CURRENTVIEW_SELECTED); 
+            EntryClass entry = iter.GetNextEntry();) {
+         mkfile(entry, FolderPath + entry.ItemPath());
+      }        
+   }
+}

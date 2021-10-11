@@ -1,0 +1,9 @@
+class MainClass{
+   void Main(CaseClass c) {
+      int num1 = 25; 
+      const int num2 = 25;
+
+      num1++;
+      num2++;
+  }
+}

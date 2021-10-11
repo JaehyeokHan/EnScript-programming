@@ -1,0 +1,15 @@
+include "CarClass"
+
+class MainClass {
+  void Main(CaseClass c) {
+    CarClass myCar();
+    myCar.setOwner(“Simon Key”);
+    myCar.setNumber(123);
+    Console.WriteLine(“차 주인 : ” + myCar.getOwner() + 
+                              “차 번호 : ” + myCar.getNumber());
+    myCar.setOwner(“Nami”);
+    myCar.setNumber(456);
+    Console.WriteLine(“차 주인 : ” + myCar.getOwner() + 
+                              “차 번호 : ” + myCar.getNumber());
+  }
+}

@@ -1,0 +1,35 @@
+class MainClass;
+
+class InputDialogClass: DialogClass {
+  TreeTableEditClass MenuList;
+
+  InputDialogClass(DialogClass parent, MainClass main):
+    DialogClass(parent, "Analysis"),
+    MenuList(this, "Menu", START, START, 
+              500, 250, 0, main.Atifects, GetOptions())
+  {
+  }
+
+  uint GetOptions() {
+    return ContextClass::CANCHECK;
+  }
+}
+
+class MainClass {
+
+  NameValueClass Atifects;
+
+  void Main() {
+    Atifects = new NameValueClass ();
+    new NameValueClass(Atifects, "Registry", 0, "레지스트리 분석");
+    new NameValueClass(Atifects.LastChild(), 
+                                   "System Info", 0, "시스템 정보");
+    new NameValueClass(Atifects.LastChild(), 
+                    "Windows Install Date", 0, "윈도우 설치 날짜");
+    new NameValueClass(Atifects, "Prefetch", 0, "프리패치 분석");
+    new NameValueClass(Atifects.LastChild(), 
+                      "Prefetch Parsing", 0, "프리패치 정보 파싱");
+    InputDialogClass diag(null, this);
+    diag.Execute();
+  }
+}

@@ -1,0 +1,25 @@
+class EntryInfo 
+{
+   int size;
+   String filename;
+
+   EntryInfo() {
+      filename = "unknown";
+      Console.WriteLine("Size of {0} is {1}", filename, size);
+   }
+  
+   void PrintEntryInfo() {
+      Console.WriteLine("Size of {0} is {1}", filename, size);
+   }
+}
+
+class MainClass{  
+   void Main(CaseClass c) {
+      EntryInfo e();
+      
+      e.size = 273;
+      e.filename = "test.hwp";
+
+      e.PrintEntryInfo();
+   }
+}

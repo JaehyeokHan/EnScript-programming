@@ -1,0 +1,18 @@
+class MainClass{
+   void Main(CaseClass c){
+        int val1 = 10;       
+        double val2 = 10.55555;
+        char val3 = 'A';
+
+        Console.WriteLine("val1 = {0}", val1);
+        Console.WriteLine("val2 = {0}", val2);
+        Console.WriteLine("val3 = {0}", val3);
+
+        val2 = val1;
+        val1 = val3;
+     
+        Console.WriteLine("val1 = {0}", val1);
+        Console.WriteLine("val2 = {0}", val2);
+        Console.WriteLine("val3 = {0}", val3);
+  }
+}

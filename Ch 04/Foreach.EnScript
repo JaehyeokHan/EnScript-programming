@@ -1,0 +1,14 @@
+class MainClass{  
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       NameListClass family();
+       NameListClass bob(family, "Dad");
+       new NameListClass(family, "Mom");
+       new NameListClass(bob, "me");
+       ForallDump(family);
+   }
+   void ForallDump(NameListClass persons) {
+      foreach (NameListClass person in persons) 
+         Console.WriteLine("{0}¡±, person.Name());
+   }
+}

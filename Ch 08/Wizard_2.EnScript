@@ -1,0 +1,30 @@
+class myDialogChild1: DialogClass {
+
+  CheckBoxClass Link_Check;
+  CheckBoxClass Korean_Check;
+
+  bool is_Link_Check;
+  bool is_Korean_Check;
+
+  myDialogChild1(DialogClass parent):
+    DialogClass(parent, "Link parser1"),
+    Link_Check(this, "LinkParsing", 
+                       30, 25, 15, 15, 0, is_Link_Check),
+    Korean_Check(this, "KoreanParsing", 
+                       110, 25, 15, 15, 0, is_Link_Check)
+  {
+  }
+}
+
+class myDialogChild2: DialogClass {
+
+  StringEditClass DirPathEdit;
+  String DirPath;
+
+  myDialogChild2(DialogClass parent):
+    DialogClass(parent, "Link parser2"),
+    DirPathEdit(this, "Folder Path", 
+                10, 15, 250, 12, 0, DirPath, 255, FOLDEROPEN)
+  {
+  }
+}

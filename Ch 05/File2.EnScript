@@ -1,0 +1,30 @@
+class MainClass {
+   String Read_byte(FileClass file)
+   {
+      if (file.GetPos() + 4 >= file.GetSize())    
+         return "";
+      else
+      {
+         String str = "0x";
+         
+         long Byte = file.ReadBinaryInt(8, FileClass::BIGENDIAN);    
+         str += String::FormatInt(Byte, int::HEX);
+
+         return str;
+      }
+   }
+   void Main(CaseClass c) {
+      for ( ItemIteratorClass iter(c, 0,
+                        ItemIteratorClass::CURRENTVIEW_SELECTED);
+                        EntryClass entry = iter.GetNextEntry(); ) {
+         EntryFileClass ef();
+         int opts;
+                
+         if (ef.Open(entry, opts))
+         {
+            String str = Read_byte(ef);
+            Console.WriteLine("{0} 8byte : {1}", entry.Name(), str);
+         }
+      }
+   }
+}

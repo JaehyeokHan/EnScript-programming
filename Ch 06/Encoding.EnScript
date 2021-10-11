@@ -1,0 +1,21 @@
+class MainClass {
+   void Main(CaseClass c) {
+        for ( ItemIteratorClass iter(c, 0,
+                       ItemIteratorClass::CURRENTVIEW_SELECTED);
+                       EntryClass entry = iter.GetNextEntry(); ) {
+            String FileName = entry.Name();
+            EntryFileClass ef();
+            int opts;
+            if (ef.Open(entry, opts))
+            {             
+               String CodePage = ef.GetCodePage();  
+               Console.WriteLine("FileName = {0}", entry.Name());
+               Console.WriteLine("CodePage = {0}", CodePage);
+               
+               ef.SetCodePage(CodePageClass::UTF8);
+               CodePage = ef.GetCodePage();  
+               Console.WriteLine("CodePage = {0}", CodePage);
+            }             
+        }
+    }
+}

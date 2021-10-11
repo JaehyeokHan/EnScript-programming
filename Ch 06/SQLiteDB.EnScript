@@ -1,0 +1,67 @@
+class myDB
+{
+  SQLiteClass sqliteDB;
+  LocalFileClass sql;
+
+  myDB(String Path)
+  {
+    sqliteDB = new SQLiteClass();
+    sql = new LocalFileClass();
+
+    if (!sql.Open(Path, FileClass::APPEND))
+    {
+      //에러
+    }
+    if (!sqliteDB.Open(sql, SQLiteClass::SQLITE_OPEN_READWRITE))
+    {
+      //에러
+    }
+  }
+
+  ~myDB()
+  {
+    sql.Close();
+    sqliteDB.Close();
+  }
+
+  void execute(String query)
+  {
+      SQLiteClass::CommandClass command = 
+                           new SQLiteClass::CommandClass();
+      if (sqliteDB.CreateCommand(command))
+      {
+         bool setupTable = true;
+         setupTable = command.ExecuteNonQuery(query);
+         if (!setupTable)
+             Console.WriteLine("Error: Table was not 
+                                             set up correctly");
+      }
+      else
+      {
+          Console.WriteLine("Error: could not 
+                                           create sql command");
+      }
+  }
+}
+
+class MainClass {
+  void Main(CaseClass c) {
+    String FolderPath = "C:\\";
+    SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+    myDB mDB( FolderPath + "HwpParser.db" );
+    mDB.execute("CREATE Table HWP_Files (Name TEXT, 
+                                            TruePath TEXT);");
+
+    for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+    {
+      if(entry.Extension().Compare("hwp") == 0)
+      {
+         mDB.execute("INSERT INTO HWP_Files 
+                       VALUES ('" + entry.Name() + 
+                       "', '" + entry.TruePath() + "');");
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+class MainClass {
+    void Main(CaseClass c) {
+        String FolderPath  = "C:\\EnScript";
+        ExecuteClass exec();  
+        exec.SetApplication("cmd.exe");
+        exec.SetFolder("C:\\windows\\system32");
+        exec.SetCommandLine("/C mkdir \"" + FolderPath + "\"");
+        exec.SetShow(false);
+        exec.Start(LocalMachine, 1000);
+        Console.WriteLine("{0} Create Folder...", FolderPath);
+    }
+}

@@ -1,0 +1,19 @@
+class MainClass{
+   void Main(CaseClass c) {
+      int a = 1, b = 0;
+      bool AND, OR;
+      
+      AND = false;
+      OR = false;
+      
+      Console.WriteLine("a && b = {0}", AND);
+      Console.WriteLine("a || b = {0}", OR);
+      
+      AND = a && b;
+      OR = a || b;
+      
+      Console.WriteLine("---논리 연산 후---");
+      Console.WriteLine("a && b = {0}", AND);
+      Console.WriteLine("a || b = {0}", OR);
+  }
+}

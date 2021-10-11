@@ -1,0 +1,10 @@
+class MainClass{  
+   int Ret_Num() 
+   {
+       return 10;
+   }
+   void Main(CaseClass c) 
+   {
+       Console.WriteLine( Ret_Num() );
+   }
+}

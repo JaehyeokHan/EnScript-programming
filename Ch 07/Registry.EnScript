@@ -1,0 +1,46 @@
+class MainClass {
+  void Main(CaseClass c) {
+
+    for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+    {
+      if(entry.IsVolume() ) {
+        RegistryClass reg(entry);
+
+        String RegNameTag = "SystemRoot";
+        String RegPath = 
+             "Software\\Microsoft\\Windows NT\\CurrentVersion";
+        RegCommandClass::Keys RegKey =
+                         RegCommandClass::HKEY_LOCAL_MACHINE;
+
+        RegCommandClass cmds();
+        new RegCommandClass(cmds, RegNameTag,
+                     RegCommandClass::READVALUE, RegKey, 
+                     RegPath, RegNameTag, 0, 1);
+
+        RegValueClass values();
+
+        if(reg.Run(cmds, values)) {
+          forall(RegValueClass CommandName in values)
+          {
+            if(CommandName.Name() == RegNameTag &&
+               CommandName.ValueText() != "Cannot read value") 
+            {
+              MemoryFileClass mf();
+              if(mf.Open(8, FileClass::WRITE)) {
+                if(CommandName.GetData(mf)) {
+                  String st_result;
+                  mf.Seek(0);
+                  mf.ReadString(st_result);
+
+                  Console.WriteLine(st_result);
+                }
+              }
+            }
+          }
+        } break;
+      }
+    }
+  }
+}

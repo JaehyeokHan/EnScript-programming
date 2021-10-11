@@ -1,0 +1,24 @@
+include "Animal"
+
+class Cat : Animal
+{
+  Cat() 
+  {
+    Name = ¡°cuty¡±;
+    age = 3;
+    weight = 3.2;
+    height = 50.2;
+  }
+  void PrintName()
+  {
+    Console.WriteLine( ¡°Name : ¡± + Name );
+  }
+  String getName()
+  {
+    return Name;
+  }
+  void setName(String str) 
+  {
+    Name = str;
+  }
+}

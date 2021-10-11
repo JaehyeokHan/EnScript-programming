@@ -1,0 +1,59 @@
+class MainClass {
+  void Main(CaseClass c) {
+   String FolderPath = "C:\\EventLog\\";
+
+   for(ItemIteratorClass iter(c, 0,
+             ItemIteratorClass::CURRENTVIEW_SELECTED); 
+             EntryClass entry = iter.GetNextEntry();) 
+   {
+      ParserClass::EventLogParserClass EventLogParser = 
+                          new ParserClass::EventLogParserClass();
+      ParserClass::EvtxArtifactClass EvtxArtifactList = 
+                          new ParserClass::EvtxArtifactClass();
+
+      EntryFileClass entryFile();
+
+      if(entryFile.Open(entry))
+      {
+         if(EventLogParser.IsValidFile(entryFile))
+         {
+             EventLogParser.Run(entryFile);
+         }
+         else
+           continue;
+      }
+
+      if(entry.Extension().Compare("Evtx") == 0)
+      {
+         EvtxArtifactList = EventLogParser.EvtxArtifacts();
+
+         LocalFileClass EvtxFile = new LocalFileClass();
+
+         EvtxFile.Open( FolderPath + entry.Name() + ".csv",
+                          FileClass::WRITE +  FileClass::TEXT );
+
+         EvtxFile.WriteLine("\"EvtFilePath\"\t\"Channel
+                     \"\t\"Computer\"\t\"EventId\"\t\"Keywords
+                     \"\t\"ThreadID\"\t\"TimeWritten
+                     \"\t\"Version\"\t\"XmlEventData\"");
+
+         foreach (ParserClass::EvtxArtifactClass Evtx 
+                                           in EvtxArtifactList)
+         {
+             String qeury = "\"" + entryFile.Name() + "\"\t\"" 
+                       + Evtx.Channel() + "\"\t\"" 
+                       + Evtx.Computer() + "\"\t\"" 
+                       + Evtx.EventId() + "\"\t\"" 
+                       + Evtx.Keywords() + "\"\t\"" 
+                       + Evtx.ThreadID() + "\"\t\"" 
+                       + Evtx.TimeWritten().GetString("yyyy/MM/dd",
+                                          "hh:mm:ss tt", 9 * -3600)  
+                       + "\"\t\"" + Evtx.Version() + "\"\t\"" 
+                       + Evtx.XmlEventData() + "\"";
+             EvtxFile.WriteLine(qeury);
+         }
+         EvtxFile.Close();
+      }
+    }
+  }
+}

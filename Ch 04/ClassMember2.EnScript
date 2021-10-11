@@ -1,0 +1,19 @@
+class myClass
+{
+   String m_Name;
+   uint m_Age;
+}
+
+class MainClass{  
+   void Main(CaseClass c) {
+      String Name = "Nancy";
+      uint Age = 27;
+    
+      myClass c();
+      c.m_Name = Name;
+      c.m_Age = Age;
+   
+      Console.WriteLine(c.m_Name);
+      Console.WriteLine(c.m_Age);
+   }
+}

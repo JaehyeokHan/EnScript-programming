@@ -1,0 +1,14 @@
+class MainClass{  
+   void Main(CaseClass c) {
+       SystemClass::ClearConsole(SystemClass::SHOWCONSOLE);
+       int a=0;
+       
+       while (1)
+       {
+          ++a;
+          Console.WriteLine("EnScript!!");
+          if (a>=5)
+             break;
+       }
+   }
+}

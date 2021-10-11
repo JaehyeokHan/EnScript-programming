@@ -1,0 +1,74 @@
+class MainClass {
+  typedef String [] StringArray;    // 배열 정의 (4.8장 참고)
+
+  void Main(CaseClass c) {
+    String FolderPath = "C:\\prefetch\\";   
+    LocalFileClass Prefetch_Csv = new LocalFileClass();
+
+    Prefetch_Csv.Open( FolderPath + "Prefetch_Parsing.csv",
+                      FileClass::WRITE +  FileClass::TEXT );
+    Prefetch_Csv.WriteLine("\"SourceFile\"\t\"FileName
+                                     \"\t\"RunCount\"" );
+
+    for(ItemIteratorClass iter(c, 0,
+                 ItemIteratorClass::CURRENTVIEW_SELECTED);
+                 EntryClass entry = iter.GetNextEntry();) 
+    {   
+       EntryFileClass entryFile();
+
+       if(entryFile.Open(entry))
+       {   
+          // 프리패치 경로가 아니라면 다음 파일로 넘어감
+          if(entry.TruePath().Find("\\Prefetch\\") == -1)
+          {
+             continue;
+          }
+       }
+
+       // 프리패치 구조에 맞게 데이터 가져오기
+       long PrefetcherVersion = entryFile.ReadBinaryInt(4);
+       long Signature = entryFile.ReadBinaryInt(4);
+       long ServieVersion = entryFile.ReadBinaryInt(4);
+       long FileSize = entryFile.ReadBinaryInt(4); 
+
+       String FileName = ""; 
+       long Count;
+
+       if(Signature != 0x41434353)    // 시그니처 확인
+          continue;
+
+       entryFile.ReadString(FileName);    // 파일명 가져오기
+
+       if(PrefetcherVersion == 0x11)    // Windows XP, 2003
+       { 
+          // 실행 횟수 가져오기
+          entryFile.Seek(144);
+          Count = entryFile.ReadBinaryInt(4);
+       }
+
+       else if(PrefetcherVersion == 0x17)    // Windows Vista, 7
+       {
+          entryFile.Seek(152);
+          Count = entryFile.ReadBinaryInt(4);
+       }
+
+       else if(PrefetcherVersion == 0x1A)     // Windows 8.1
+       {
+          entryFile.Seek(208);
+          Count = entryFile.ReadBinaryInt(4);
+       }
+
+       else
+       {
+          continue;
+       }
+
+       String qeury = "\"" + entryFile.Name() + 
+                      "\"\t\"" + FileName + 
+                      "\"\t\"" + Count +  "\"";
+
+       Prefetch_Csv.WriteLine(qeury);
+    }
+    Prefetch_Csv.Close();
+  }
+}

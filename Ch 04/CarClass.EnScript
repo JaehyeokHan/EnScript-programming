@@ -1,0 +1,22 @@
+class CarClass
+{
+  private String  Owner;
+  private uint Number;
+  public String getOwner()
+  {
+    return Owner;
+  }
+  public void setOwner(String _Owner)
+  {
+     Owner = _Owner;
+  }
+  
+  public String getNumber()
+  {
+    return Number;
+  }
+  public void setNumber(uint _Number)
+  {
+     Number = _Number;
+  }
+}
