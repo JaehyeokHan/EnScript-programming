@@ -8,8 +8,8 @@ Publisher: BJ Republic (20 July 2017.) / 출판사: 비제이리퍼블릭
 
 ISBN: 9791186697382; 1186697385
 
-This is also published at
-https://github.com/bjpublic/enscript/
+***
 
-A good reference:
-https://github.com/sdckey/EnScript-Samples
+This is also published at <https://github.com/bjpublic/enscript/>
+
+A good reference: <https://github.com/sdckey/EnScript-Samples>
