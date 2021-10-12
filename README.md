@@ -5,12 +5,14 @@ Title: EnScript Programming for Digital Forensic Analysis: Learn Basics and Usag
 Author : Minsik Kim, Sangjin Lee, & Jaehyeok Han.  
 Publisher : BJ Republic (July 20, 2017)  
 Language : Korean  
-Paperback : 272 pages
+Paperback : 272 pages  
 ISBN-10 : 1186697385  
 ISBN-13 : 9791186697382  
+
+<img src="/cover.jpg" width="220px" height="300px" title="book_cover"></img><br/>
 
 ***
 
 This is also published at <https://github.com/bjpublic/enscript/>
 
-A good reference: <https://github.com/sdckey/EnScript-Samples>
+A good reference : <https://github.com/sdckey/EnScript-Samples>
