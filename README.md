@@ -2,7 +2,7 @@
 
 #### "디지털 포렌식 분석을 위한 EnScript 프로그래밍: 8가지 실전 예제로 배우는 EnScript 기초 및 활용"
 Title: EnScript Programming for Digital Forensic Analysis: Learn Basics and Usages with 8 Hands-On Examples  
-Author : Minsik Kim, Sangjin Lee, and Jaehyeok Han.  
+Author : Minsik Kim, Sangjin Lee, and Jaehyeok Han  
 Publisher : BJ Republic (July 20, 2017)  
 Language : Korean  
 Paperback : 272 pages  
